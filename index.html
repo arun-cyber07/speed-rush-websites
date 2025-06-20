@@ -4,9 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Speed Rush - Ultimate Racing Game</title>
-  <style>
+blockquote {
+  font-style: italic;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 15px 20px;
+  border-left: 5px solid #ff004c;
+  margin: 15px auto;
+  max-width: 600px;
+  border-radius: 10px;
+}
+  <style>body.light {
+  background: #f4f4f4;
+  color: #111;
+}
+
+body.light section {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+body.light .cta {
+  background-color: #0066ff;
+  color: white;
+}
+
+body.light .cta:hover {
+  background-color: #0051cc;
+  box-shadow: 0 0 10px rgba(0, 102, 255, 0.6);
+}
+
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
-    body {
+  <script>
+  function toggleTheme() {
+    document.body.classList.toggle('light');
+  }
+</script>
+  body { 
+      <button onclick="toggleTheme()" style="position: fixed; top: 20px; right: 20px; padding: 10px 15px; border-radius: 8px; background: #333; color: #fff; border: none; cursor: pointer;">
+  Toggle Theme
+</button>
       font-family: 'Orbitron', sans-serif;
       background: linear-gradient(to right, #1f1c2c, #928dab);
       color: white;
@@ -102,7 +137,12 @@
 
   </style>
 </head>
-<body>
+<body> <section>
+  <h2>What Players Say</h2>
+  <blockquote>"Speed Rush is insanely fast and fun! I felt like a pro driver!" – SpeedySam</blockquote>
+  <blockquote>"The graphics blew me away. Can't stop playing!" – RacerX</blockquote>
+  <blockquote>"Nitro boost + drifting = perfection." – DriftQueen99</blockquote>
+</section>
   <header>
     <h1>Speed Rush</h1>
     <p>The Ultimate Racing Experience – Fast, Fierce, and Fun!</p>
