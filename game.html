@@ -86,4 +86,89 @@
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Car Racing</title>
+  <style>
+    body {
+      margin: 0;
+      background: #333;
+      overflow: hidden;
+    }
+    #gameArea {
+      position: relative;
+      width: 400px;
+      height: 600px;
+      margin: 20px auto;
+      background: #222;
+      border: 3px solid #fff;
+      overflow: hidden;
+    }
+    .car, .enemy {
+      position: absolute;
+      width: 50px;
+      height: 80px;
+    }
+    .car img, .enemy img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+  <div id="gameArea">
+    <div class="car" id="playerCar">
+      <img src="https://i.ibb.co/hX6Xrk9/player-car.png" alt="Player Car">
+    </div>
+    <div class="enemy" id="enemyCar">
+      <img src="https://i.ibb.co/GQ8nFYv/enemy-car.png" alt="Enemy Car">
+    </div>
+  </div>
+
+  <script>
+    const playerCar = document.getElementById('playerCar');
+    const enemyCar = document.getElementById('enemyCar');
+    const gameArea = document.getElementById('gameArea');
+
+    let playerX = 175;
+    let enemyY = -100;
+    let enemyX = Math.floor(Math.random() * 350);
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft' && playerX > 0) {
+        playerX -= 25;
+      } else if (e.key === 'ArrowRight' && playerX < 350) {
+        playerX += 25;
+      }
+      playerCar.style.left = playerX + 'px';
+    });
+
+    function moveEnemy() {
+      enemyY += 5;
+      if (enemyY > 600) {
+        enemyY = -100;
+        enemyX = Math.floor(Math.random() * 350);
+      }
+      enemyCar.style.top = enemyY + 'px';
+      enemyCar.style.left = enemyX + 'px';
+
+      if (enemyY + 80 > 520 &&
+          playerX < enemyX + 50 &&
+          playerX + 50 > enemyX) {
+        alert('Game Over!');
+        window.location.reload();
+      }
+
+      requestAnimationFrame(moveEnemy);
+    }
+
+    moveEnemy();
+  </script>
+</body>
+</html>
+
 car race game page
